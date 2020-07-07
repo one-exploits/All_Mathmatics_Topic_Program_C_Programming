@@ -52,14 +52,7 @@ return 0;
 
 int main(){
           home_option();
-          set_option(polynomial,1);
-          set_option(linear_equation_in_two_variable,num_linear_equation_in_two_variable);
-          set_option(quadratic_equation,num_quadratic_equation);
-          set_option(arithmatic_progression,num_arithmatic_progression);
-          set_option(co_ordinate_geometry,num_co_ordinate_geometry);
-          set_option(area_related_to_circle,num_area_related_to_circle);
-          set_option(surface_area,num_surface_area);
-          set_option(volume,num_volume);
+
           return 0; 
     }
     
