@@ -1,10 +1,15 @@
+//8july 2020
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
 void set_option(char**,int);
 int home_option(void); 
-int main_setup_and_input();  
+int main_setup_and_input();
+void back_option(int); 
+int input_as_select(void);
+int last_option_after_each_calculation(int,int,int);
 /*
 
 */
@@ -34,15 +39,29 @@ int num_volume=5;
 
 
 
+
 void set_option(char *list[],int number_of_element_in_list){
 	
    	for (int i=0;i<number_of_element_in_list;i++){
    	printf("   :::[%d] %s\n",(i+1),list[i]);
    	   	
-   }	
    }
 
+		
+   }
 
+void back_option(int key){
+ printf("   :::[%d] Go Back To Home Menu :) \n",key);	
+	
+}
+
+int input_as_select(){
+		
+	int option_input;
+	printf("\n\n\nselect:/> ");
+	scanf("%d",&option_input);
+	return option_input; 
+}
 
 
 int home_option(){
@@ -90,11 +109,125 @@ int home_option(){
 return 0; 	
 }
 
+int last_option_after_each_calculation(int more,int one_back,int back_main_menu){
+	int status;
+	printf("\n\n\n###[%d] Do You Want To Calculate More !...\n",more);
+	printf("###[%d] Do You Want To Back One !...\n",one_back);
+	printf("###[%d] Do Want To Back Main Menu !... \n",back_main_menu);
+	printf("###[!] Press.. Any key to exit !...\n");
+	scanf("%d",&status);
+	return status; 
+	
+}
+
+
+
+/////////////////////////////////////////
+/////All Mathematical Function blew//////
+/////////////////////////////////////////
+
+
+//calculate quadratic alpha beeta
+float c_quadratic_alpha_beeta(){
+	while(1){
+	  int func_option;
+	    printf("\n\n");
+		set_option(polynomial,num_polynomial);//here display all option of main options
+	    back_option(99);//print back option key 99
+		func_option=input_as_select();//simply function to inputing 
+		printf("%d",func_option);
+			if (func_option==1){
+				while(1){
+				float alpha,beeta;
+				float sum_of_alpha_beeta;
+				float alpha_into_beeta;
+				char sign_of_plus_minus;
+				char sign_of_second_plus_minus;
+				printf("\n\n\t\t##### ENTER ALPHA AND BEETA #### \n");
+				printf("\nEnter Alpha value :");
+				scanf("%f",&alpha);
+				printf("\nEnter Beeta value :");
+				scanf("%f",&beeta);
+				//calculation part here
+				sum_of_alpha_beeta=(alpha)+(beeta);
+				alpha_into_beeta=(alpha)*(beeta);
+				if (sum_of_alpha_beeta>0){
+					//positive
+					sign_of_plus_minus='-';
+				}else if (sum_of_alpha_beeta<0){
+					sum_of_alpha_beeta=(sum_of_alpha_beeta)*(-1);
+					sign_of_plus_minus='+';
+				}
+				
+				if (alpha_into_beeta>0){
+					sign_of_second_plus_minus='+';
+					
+				}
+				else if (alpha_into_beeta<0){
+					alpha_into_beeta=(alpha_into_beeta)*(-1);
+					sign_of_second_plus_minus='-';
+				}
+				
+				
+				
+				printf("\n\n\t\t########## A n s w e r ###########\n\t\tx^2%c(%f)x%c(%f)\n\t\t########## A n s w e r ###########",sign_of_plus_minus,sum_of_alpha_beeta,sign_of_second_plus_minus,alpha_into_beeta);
+				
+				int last_option;
+				last_option=last_option_after_each_calculation(77,88,99);
+				if(last_option==77){
+					continue;
+				 
+				 }
+				else if (last_option==88){
+					c_quadratic_alpha_beeta();
+					
+					}
+				
+				else if (last_option==99){
+					main_setup_and_input();
+						
+				}
+				else{
+					exit(1);
+				}
+				
+				
+				
+				}//inner loop
+		
+	
+					
+	
+	
+				}
+	    //main options 
+		else if (func_option==99){
+		    main_setup_and_input();	
+		}
+				
+	
+		}	
+	
+return 0; 	
+}
+
+
+
+
+
 int main_setup_and_input(){
 	while(1){
+	//homeFunction
 	home_option();
-	int option_input=0;
-	scanf("%d",&option_input);	
+	int option_input;
+	printf("\n\n\nselect:~# ");
+	scanf("%d",&option_input);
+	    //ifing for main option
+	    if (option_input==1){
+	    	c_quadratic_alpha_beeta();
+	    		
+	    	
+	    		}	
     }
      		
 return 0; 	
@@ -111,5 +244,29 @@ int main(){
           main_setup_and_input();
           return 0; 
     }
+    
+    
+/*   
+              
+                last_option_after_each_calculation(77,88,99);
+                int last_option;
+				last_option=last_option_after_each_calculation(77,88,99);
+				if(last_option==1){
+					//calculate more
+					continue;
+				 
+				 }
+				else if (last_option==2){
+					//back one
+					//self call_Func
+					recursion();
+					
+					}
+				
+				else if (last_option==3){
+					//back to main menu
+					main_setup_and_input();
+				}
+				*/
     
 
