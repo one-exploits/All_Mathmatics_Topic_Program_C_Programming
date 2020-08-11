@@ -14,6 +14,7 @@ float c_quadratic_alpha_beeta();
 float c_linear_equation_in_two_variable(void);
 void exit_failure_massage(int);
 float c_quadratic_equation(void);
+float c_arithmetic_progression();
 
 //<class name="class Linear_equation:">
 
@@ -113,7 +114,7 @@ int home_option(){
           printf("\nQUADRATIC EQUATION ENUMERATION :\n");
           set_option(quadratic_equation,num_quadratic_equation);
           
-          printf("\nARITHMATIC PROGRESSION ENUMERATION :\n");
+          printf("\nARITHMETIC PROGRESSION ENUMERATION :\n");
           set_option(arithmatic_progression,num_arithmatic_progression);
           
           printf("\nCO-ORDINATE GEOMETRY ENUMERATION :\n");
@@ -134,7 +135,7 @@ int home_option(){
     printf("\n\n[1] POLYNOMIAL ENUMERATION \n");	
     printf("[2] lINEAR EQUATION IN TWO VARIABLE ENUMERATION \n");
     printf("[3] QUADRATIC EQUATION ENUMERATION \n");
-    printf("[4] ARITHMATIC PROGRESSION ENUMERATION \n");
+    printf("[4] ARITHMETIC PROGRESSION ENUMERATION \n");
     printf("[5] CO-ORDINATE GEOMETRY ENUMERATION \n");
     printf("[6] AREA RELATED TO CIRCLE ENUMERATION \n");
     printf("[7] SURFACE AREA EQUATION ENUMERATION \n");
@@ -537,6 +538,24 @@ float c_quadratic_equation(void){
 }
 
 
+float c_arithmetic_progression(){
+  while (1)
+	{
+		printf("\n    _             _   _     _                          _     _        ");
+		printf("\n   / \\     _ __  (_) | |_  | |__    _ __ ___     ___  | |_  (_)   ___  ");
+		printf("\n  / _ \\   | '__| | | | __| | '_ \\  | '_ ` _ \\   / _ \\ | __| | |  / __| ");
+		printf("\n / ___ \\  | |    | | | |_  | | | | | | | | | | |  __/ | |_  | | | (__ ");
+		printf("\n/_/   \\_\\ |_|    |_|  \\__| |_| |_| |_| |_| |_|  \\___|  \\__| |_|  \\___|");
+        printf(" Progression.");
+		int func_option;
+	    printf("\n\n");
+		set_option(arithmatic_progression,num_arithmatic_progression);//here display all option of main options
+	    back_option(99);//print back option key 99
+		func_option=input_as_select();
+		
+	}
+}
+
 
 
 
@@ -565,7 +584,10 @@ int main_setup_and_input(){
 		{
 		   c_quadratic_equation();
 		}
-
+        else if (option_input==4)
+		{
+			c_arithmetic_progression();
+		}
 		else
 		{
 			exit_failure_massage(option_input);
